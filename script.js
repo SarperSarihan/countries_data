@@ -14,40 +14,75 @@
     document.body.appendChild(img)
 }*/
 
-countries_data.forEach((ulke)=>{
-    console.log(ulke);
+function ulkeler(){
 
-    const div=document.createElement('div')
-    div.classList.add('card')
-    div.style.width="25rem"
-    
-    const img=document.createElement('img')
-    img.src=ulke.flag
-    img.classList.add('card-img-top')
+    const container=document.createElement('div')
+    container.classList.add('container')
 
-    const div2=document.createElement('div2')
-    div2.classList.add('card-body')
+    document.body.append(container)
 
-    const h5=document.createElement('h5')
-    h5.classList.add('card-title')
-    h5.textContent=ulke.name
+    const row=document.createElement('div')
+    row.setAttribute('class','row mt-3')
 
-    const p=document.createElement('p')
-    p.classList.add('card-text')
-    p.textContent=`${ulke.capital} - ${ulke.languages} - ${ulke.region}`
-
-    const a=document.createElement('a')
-    a.setAttribute('class', 'btn btn-warning')
-    a.textContent=ulke.population
-
-    div2.append(h5)
-    div2.append(p)
-    div2.append(a)
-
-    div.append(img)
-    div.append(div2)
-
-    document.body.append(div)
+    container.append(row)
 
 
-})
+
+    countries_data.forEach((ulke)=>{
+        console.log(ulke);
+
+        const col=document.createElement('div')
+        col.classList.add('col-4')
+
+        //*********************** */
+
+
+
+        const div=document.createElement('div')
+        div.classList.add('card')
+        div.style.width="25rem"
+        
+        const img=document.createElement('img')
+        img.src=ulke.flag
+        img.classList.add('card-img-top')
+
+        const div2=document.createElement('div2')
+        div2.classList.add('card-body')
+
+        const h5=document.createElement('h5')
+        h5.classList.add('card-title')
+        h5.textContent=ulke.name
+
+        const p=document.createElement('p')
+        p.classList.add('card-text')
+        p.textContent=`${ulke.capital} - ${ulke.languages} - ${ulke.region}`
+
+        const a=document.createElement('a')
+        a.setAttribute('class', 'btn btn-warning')
+        a.textContent=ulke.population
+
+        div2.append(h5)
+        div2.append(p)
+        div2.append(a)
+
+        div.append(img)
+        div.append(div2)
+
+        col.append(div)
+        row.append(col)
+
+
+
+    })
+}
+
+const btn=document.createElement('buton')
+btn.setAttribute('class', 'btn btn-dark')
+btn.textContent='Ülkeler'
+
+document.body.append(btn)
+
+
+
+btn.addEventListener('click',ulkeler)
+
